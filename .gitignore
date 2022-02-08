@@ -1,4 +1,6 @@
 node_modules
 images
-vendor
+vendor/*
+!vendor/bootstrap
+!vendor/jquery
 composer.phar
