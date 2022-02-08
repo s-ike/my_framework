@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^index\.php$ - [L]
+RewriteRule index\.php - [L]
+
+# トップページではない場合、index.phpに
+RewriteCond %{REQUEST_URI} !(^/$)
+# /css, /js, /images, /vendor ディレクトリではない場合、index.phpに
+RewriteCond %{REQUEST_URI} !(^/css/)
+RewriteCond %{REQUEST_URI} !(^/js/)
+RewriteCond %{REQUEST_URI} !(^/images/)
+RewriteCond %{REQUEST_URI} !(^/vendor/)
+# ファイルが存在しない場合、index.phpに
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
